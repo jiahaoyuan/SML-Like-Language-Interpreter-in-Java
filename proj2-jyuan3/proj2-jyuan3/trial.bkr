@@ -1,0 +1,249 @@
+{
+    "beaker": "2",
+    "evaluators": [
+        {
+            "name": "HTML",
+            "plugin": "HTML",
+            "view": {
+                "cm": {
+                    "mode": "smartHTMLMode"
+                }
+            }
+        },
+        {
+            "name": "JavaScript",
+            "plugin": "JavaScript",
+            "view": {
+                "cm": {
+                    "mode": "javascript",
+                    "background": "#FFE0F0"
+                }
+            },
+            "languageVersion": "ES2015"
+        },
+        {
+            "name": "Java",
+            "plugin": "Java",
+            "imports": "java.util.concurrent.TimeUnit\ncom.twosigma.beaker.chart.Color\ncom.twosigma.beaker.chart.GradientColor\ncom.twosigma.beaker.chart.legend.*\ncom.twosigma.beaker.chart.Filter\ncom.twosigma.beaker.BeakerProgressUpdate\ncom.twosigma.beaker.chart.xychart.*\ncom.twosigma.beaker.chart.xychart.plotitem.*\ncom.twosigma.beaker.chart.categoryplot.*\ncom.twosigma.beaker.chart.categoryplot.plotitem.*\ncom.twosigma.beaker.chart.histogram.*\ncom.twosigma.beaker.chart.treemap.*\ncom.twosigma.beaker.chart.treemap.util.*\nnet.sf.jtreemap.swing.*\ncom.twosigma.beaker.NamespaceClient\ncom.twosigma.beaker.chart.heatmap.HeatMap\ncom.twosigma.beaker.jvm.object.*\ncom.twosigma.beaker.easyform.*\ncom.twosigma.beaker.easyform.formitem.*\ncom.twosigma.beaker.table.*\ncom.twosigma.beaker.table.format.*\ncom.twosigma.beaker.table.renderer.*\ncom.twosigma.beaker.table.highlight.*",
+            "view": {
+                "cm": {
+                    "mode": "text/x-java"
+                }
+            }
+        }
+    ],
+    "cells": [
+        {
+            "id": "codesmjq71",
+            "type": "code",
+            "evaluator": "Java",
+            "input": {
+                "body": [
+                    "package interpreter;",
+                    "",
+                    "public class EvalError extends Exception {",
+                    "    EvalError() { super(); }",
+                    "    EvalError(String s) { super(s); }",
+                    "}",
+                    ""
+                ]
+            },
+            "output": {
+                "state": {},
+                "result": "interpreter.EvalError",
+                "selectedType": "Text",
+                "pluginName": "Java",
+                "shellId": "30fcbfa0-8dee-4882-a0c8-73b73f9f2223",
+                "elapsedTime": 547,
+                "height": 57
+            },
+            "evaluatorReader": true,
+            "isError": false,
+            "lineCount": 7
+        },
+        {
+            "id": "codebGZmX8",
+            "type": "code",
+            "evaluator": "Java",
+            "input": {
+                "body": [
+                    "package interpreter;",
+                    "",
+                    "public class UnboundVar extends EvalError {",
+                    "    UnboundVar() { super(); }",
+                    "    UnboundVar(String s) { super(s); }",
+                    "}",
+                    ""
+                ]
+            },
+            "output": {
+                "state": {},
+                "result": "interpreter.UnboundVar",
+                "selectedType": "Text",
+                "pluginName": "Java",
+                "shellId": "30fcbfa0-8dee-4882-a0c8-73b73f9f2223",
+                "elapsedTime": 547,
+                "height": 57
+            },
+            "evaluatorReader": true,
+            "lineCount": 7,
+            "isError": false
+        },
+        {
+            "id": "code8UOmQw",
+            "type": "code",
+            "evaluator": "Java",
+            "input": {
+                "body": [
+                    "package interpreter;",
+                    "",
+                    "public interface Env {",
+                    "    public Value lookup(String id) throws UnboundVar;",
+                    "    ",
+                    "    public Env addBinding(String id, Value v);",
+                    "    ",
+                    "    public Env updateBinding(String id, Value v) throws UnboundVar;",
+                    "    ",
+                    "    public String toString();",
+                    "}",
+                    ""
+                ]
+            },
+            "output": {
+                "state": {},
+                "result": "interpreter.Env",
+                "selectedType": "Text",
+                "pluginName": "Java",
+                "shellId": "30fcbfa0-8dee-4882-a0c8-73b73f9f2223",
+                "elapsedTime": 572,
+                "height": 57
+            },
+            "evaluatorReader": true,
+            "lineCount": 12,
+            "isError": false
+        },
+        {
+            "id": "codeFBPqfR",
+            "type": "code",
+            "evaluator": "Java",
+            "input": {
+                "body": [
+                    "package interpreter;",
+                    "",
+                    "public abstract class Expr {",
+                    "    abstract public Value eval(Env e) throws EvalError;",
+                    "    abstract public String toString();",
+                    "}",
+                    ""
+                ]
+            },
+            "output": {
+                "state": {},
+                "result": "interpreter.Expr",
+                "selectedType": "Text",
+                "pluginName": "Java",
+                "shellId": "30fcbfa0-8dee-4882-a0c8-73b73f9f2223",
+                "elapsedTime": 557,
+                "height": 57
+            },
+            "evaluatorReader": true,
+            "lineCount": 7,
+            "isError": false
+        },
+        {
+            "id": "codeMGCpwb",
+            "type": "code",
+            "evaluator": "Java",
+            "input": {
+                "body": [
+                    "package interpreter;",
+                    "",
+                    "public abstract class Value {",
+                    "    abstract public String toString();",
+                    "}",
+                    ""
+                ]
+            },
+            "output": {
+                "state": {},
+                "result": "interpreter.Value",
+                "selectedType": "Text",
+                "pluginName": "Java",
+                "shellId": "30fcbfa0-8dee-4882-a0c8-73b73f9f2223",
+                "elapsedTime": 575,
+                "height": 57
+            },
+            "evaluatorReader": true,
+            "lineCount": 6,
+            "isError": false
+        },
+        {
+            "id": "codeWyLmrJ",
+            "type": "code",
+            "evaluator": "Java",
+            "input": {
+                "body": [
+                    "package interpreter;",
+                    "",
+                    "public class IntVal extends Value {",
+                    "    public final int IntV;",
+                    "    public IntVal(int _value) {",
+                    "\t   IntV = _value;",
+                    "    }",
+                    "    public String toString() {",
+                    "\t   return String.valueOf(IntV);",
+                    "    }",
+                    "",
+                    "}",
+                    ""
+                ]
+            },
+            "output": {
+                "state": {},
+                "result": "interpreter.IntVal",
+                "selectedType": "Text",
+                "pluginName": "Java",
+                "shellId": "30fcbfa0-8dee-4882-a0c8-73b73f9f2223",
+                "elapsedTime": 578,
+                "height": 57
+            },
+            "evaluatorReader": true,
+            "lineCount": 13,
+            "isError": false
+        },
+        {
+            "id": "codeUQtwkQ",
+            "type": "code",
+            "evaluator": "Java",
+            "input": {
+                "body": [
+                    "package interpreter;",
+                    "",
+                    "IntVal x = new IntVal(10);",
+                    "System.out.println(x);"
+                ]
+            },
+            "output": {
+                "state": {},
+                "result": {
+                    "type": "Results",
+                    "outputdata": [
+                        {
+                            "type": "out",
+                            "value": "10\r\n"
+                        }
+                    ]
+                },
+                "selectedType": "Results",
+                "pluginName": "Java",
+                "shellId": "30fcbfa0-8dee-4882-a0c8-73b73f9f2223",
+                "elapsedTime": 570,
+                "height": 56
+            },
+            "evaluatorReader": true,
+            "lineCount": 4,
+            "isError": false
+        }
+    ],
+    "namespace": {}
+}
