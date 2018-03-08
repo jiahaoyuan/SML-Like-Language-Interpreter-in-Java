@@ -20,21 +20,36 @@ http://www.csc.villanova.edu/~jiyuan/documents/SML-Syntax-Language%20Interpreter
 Some SML examples are like:
 
 Input:
+
 if 1=1 then 2 else 99;
+
 Output:
+
 2
 
+
 Input:
+
 let val x = 1 in x+2 end;
+
 Output:
+
 3
 
-Input:
-let fun f(x) = x+3 in f(4) end;
-Output:
-7
 
 Input:
-let val x=0 in x:=3 x end;
+
+let fun f(x) = x+3 in f(4) end;
+
 Output:
+
+7
+
+
+Input:
+
+let val x=0 in x:=3 x end;
+
+Output:
+
 3
